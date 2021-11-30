@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { HeaderNavLinkProps } from '../../common/types';
-import { colours, fontWeight, fontSizes } from '../../common/theme';
+import { colours, fontWeight, fontSizes, fontFamily } from '../../common/theme';
 
 const HeaderNavLink = ({ linkTo, title }: HeaderNavLinkProps) => {
 	const commonLinkStyle = {
@@ -10,10 +10,12 @@ const HeaderNavLink = ({ linkTo, title }: HeaderNavLinkProps) => {
 		background: colours.primary,
 		border: `2px solid ${colours.detail}`,
 		flexGrow: 1,
-		fontSize: fontSizes.large,
+		fontSize: fontSizes.normal,
+		fontFamily: fontFamily.roboto,
+		padding: '.6rem 0',
 	};
 
-	const activeStyle = {
+	const activeLinkStyle = {
 		color: colours.secondary,
 		background: colours.detail,
 	};
@@ -23,7 +25,7 @@ const HeaderNavLink = ({ linkTo, title }: HeaderNavLinkProps) => {
 			to={linkTo}
 			style={({ isActive }) =>
 				isActive
-					? { ...commonLinkStyle, ...activeStyle }
+					? { ...commonLinkStyle, ...activeLinkStyle }
 					: { ...commonLinkStyle }
 			}
 		>

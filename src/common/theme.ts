@@ -20,3 +20,11 @@ export const fontWeight = {
 	normal: 400,
 	bold: 500,
 };
+
+export const fontFamily = {
+	roboto: 'Roboto, sans-serif',
+};
+
+export const borderRadius = {
+	basic: '5px',
+};

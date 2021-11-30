@@ -6,3 +6,7 @@ export type HeaderNavLinkProps = {
 export type ButtonProps = {
 	title: string;
 };
+
+export type SentenceSectionProps = {
+	even: boolean;
+};

@@ -4,8 +4,8 @@ import { StyledHeader } from './styled';
 const Header = () => {
 	return (
 		<StyledHeader>
-			<HeaderNavLink linkTo={'/'} title={'SENTENCES'} />
-			<HeaderNavLink linkTo={'/add-new-sentence'} title={'ADD NEW'} />
+			<HeaderNavLink linkTo={'/'} title={'ALL SENTENCES'} />
+			<HeaderNavLink linkTo={'/add-new-sentence'} title={'ADD SENTENCE'} />
 		</StyledHeader>
 	);
 };
