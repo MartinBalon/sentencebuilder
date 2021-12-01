@@ -1,7 +1,6 @@
 import { RootState } from '../../../store';
 import { useSelector } from 'react-redux';
 import { MainParagraph, Paragraph, Span } from './styled';
-import CorrectSentenceIndicator from './correct-sentence-indicator';
 
 const SentenceOverview = () => {
 	const sentenceData = useSelector((state: RootState) => state.sentence);
@@ -15,13 +14,6 @@ const SentenceOverview = () => {
 	const wordWhen = when.valid ? when.value : <Span>when</Span>;
 	const wordWhere = where.valid ? where.value : <Span>where</Span>;
 
-	let success: boolean;
-	if (who.valid && what.valid && when.valid && where.valid) {
-		success = true;
-	} else {
-		success = false;
-	}
-
 	return (
 		<section>
 			<MainParagraph>Sentence:</MainParagraph>
@@ -29,7 +21,6 @@ const SentenceOverview = () => {
 				{wordWho} {wordWhat} {wordWhere} {wordWhen}
 				{when.valid ? '.' : <Span>.</Span>}
 			</Paragraph>
-			<CorrectSentenceIndicator success={success} />
 		</section>
 	);
 };

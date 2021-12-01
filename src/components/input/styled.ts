@@ -12,6 +12,7 @@ export const Input = styled.input`
 	width: 100%;
 	font-size: ${fontSizes.large};
 	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
 	padding: 0.2rem;
 	outline: none;
 	border: none;
@@ -22,4 +23,10 @@ export const Input = styled.input`
 		border-bottom: 2px solid ${colours.detail};
 		transition: border-bottom 0.4s ease;
 	}
+`;
+
+export const ErrorSpan = styled.span`
+	color: ${colours.error};
+	font-size: ${fontSizes.small};
+	font-family: ${fontFamily.roboto};
 `;

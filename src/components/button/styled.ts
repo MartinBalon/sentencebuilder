@@ -14,10 +14,12 @@ export const StyledButton = styled.button<StyledButtonProps>`
 	text-align: center;
 	width: 7rem;
 	margin: 0 0.4rem;
-	padding: 0.2rem 1rem;
+	padding: 0.4rem 1rem;
 	border-radius: ${borderRadius.basic};
 	color: ${colours.secondary};
 	background: ${(props) =>
 		props.buttonType === 'delete' ? colours.detail : colours.success};
+	background: ${(props) => (props.disabled ? colours.lightPrimary : null)};
 	cursor: pointer;
+	line-height: ${fontSizes.large};
 `;

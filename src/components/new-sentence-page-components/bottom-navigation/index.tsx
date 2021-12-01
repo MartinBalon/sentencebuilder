@@ -37,16 +37,16 @@ const BottomNavigation = () => {
 				status={!what.touched ? 'default' : what.valid ? 'success' : 'error'}
 			/>
 			<BottomNavLink
-				linkTo={`${ADD_SENTENCE_URL}/${WHEN_URL}`}
-				title={'WHEN'}
-				active={`${pathNameArray[2]}` === WHEN_URL ? true : false}
-				status={!when.touched ? 'default' : when.valid ? 'success' : 'error'}
-			/>
-			<BottomNavLink
 				linkTo={`${ADD_SENTENCE_URL}/${WHERE_URL}`}
 				title={'WHERE'}
 				active={`${pathNameArray[2]}` === WHERE_URL ? true : false}
 				status={!where.touched ? 'default' : where.valid ? 'success' : 'error'}
+			/>
+			<BottomNavLink
+				linkTo={`${ADD_SENTENCE_URL}/${WHEN_URL}`}
+				title={'WHEN'}
+				active={`${pathNameArray[2]}` === WHEN_URL ? true : false}
+				status={!when.touched ? 'default' : when.valid ? 'success' : 'error'}
 			/>
 		</StyledBottomNavigation>
 	);

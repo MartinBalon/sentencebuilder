@@ -7,18 +7,18 @@ type SentenceType = {
 	errorMessage: string;
 };
 
-type SentenceState = {
+export type SentenceState = {
 	who: SentenceType;
 	what: SentenceType;
-	when: SentenceType;
 	where: SentenceType;
+	when: SentenceType;
 };
 
 const initialState: SentenceState = {
 	who: { value: '', touched: false, valid: false, errorMessage: '' },
 	what: { value: '', touched: false, valid: false, errorMessage: '' },
-	when: { value: '', touched: false, valid: false, errorMessage: '' },
 	where: { value: '', touched: false, valid: false, errorMessage: '' },
+	when: { value: '', touched: false, valid: false, errorMessage: '' },
 };
 
 export const sentenceSlice = createSlice({
@@ -31,11 +31,11 @@ export const sentenceSlice = createSlice({
 		updateWhat: (state, action: PayloadAction<SentenceType>) => {
 			state.what = action.payload;
 		},
-		updateWhen: (state, action: PayloadAction<SentenceType>) => {
-			state.when = action.payload;
-		},
 		updateWhere: (state, action: PayloadAction<SentenceType>) => {
 			state.where = action.payload;
+		},
+		updateWhen: (state, action: PayloadAction<SentenceType>) => {
+			state.when = action.payload;
 		},
 		deleteSentence: () => {
 			return initialState;
@@ -46,8 +46,8 @@ export const sentenceSlice = createSlice({
 export const {
 	updateWho,
 	updateWhat,
-	updateWhen,
 	updateWhere,
+	updateWhen,
 	deleteSentence,
 } = sentenceSlice.actions;
 

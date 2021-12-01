@@ -15,3 +15,7 @@ export const LinksContainer = styled.div`
 export const LeftLink = styled.div`
 	float: left;
 `;
+
+export const RightLink = styled.div`
+	float: right;
+`;

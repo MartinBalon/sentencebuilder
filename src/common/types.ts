@@ -14,10 +14,13 @@ export type BottomNavLinkProps = {
 export type ButtonProps = {
 	title: string;
 	type: string;
+	disabled: boolean;
+	onClick: any;
 };
 
 export type StyledButtonProps = {
 	buttonType: string;
+	disabled: boolean;
 };
 
 export type SentenceSectionProps = {
@@ -28,9 +31,18 @@ export type QuestionNavProps = {
 	link: string;
 };
 
+export type InputDataObject = {
+	value: string;
+	touched: boolean;
+	valid: boolean;
+	errorMessage: string;
+};
+
 export type TextInputProps = {
 	title: string;
 	name: string;
+	data: InputDataObject;
+	onChange: any;
 };
 
 export type CorrectSentenceIndicatorProps = {
