@@ -28,3 +28,7 @@ export const fontFamily = {
 export const borderRadius = {
 	basic: '5px',
 };
+
+export const padding = {
+	mainPadding: '1rem',
+};

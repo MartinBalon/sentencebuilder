@@ -1,11 +1,11 @@
 import Sentence from '../sentence';
-import { Article } from './styled';
+import { List } from './styled';
 
 const SentencesList = () => {
 	return (
-		<Article>
+		<List>
 			<Sentence />
-		</Article>
+		</List>
 	);
 };
 

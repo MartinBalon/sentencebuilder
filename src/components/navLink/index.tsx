@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { HeaderNavLinkProps } from '../../common/types';
 import { colours, fontWeight, fontSizes, fontFamily } from '../../common/theme';
 
-const HeaderNavLink = ({ linkTo, title }: HeaderNavLinkProps) => {
+const HeaderNavLink = ({ linkTo, title, active }: HeaderNavLinkProps) => {
 	const commonLinkStyle = {
 		textDecoration: 'none',
 		fontWeight: fontWeight.bold,
@@ -23,8 +23,8 @@ const HeaderNavLink = ({ linkTo, title }: HeaderNavLinkProps) => {
 	return (
 		<NavLink
 			to={linkTo}
-			style={({ isActive }) =>
-				isActive
+			style={
+				active
 					? { ...commonLinkStyle, ...activeLinkStyle }
 					: { ...commonLinkStyle }
 			}

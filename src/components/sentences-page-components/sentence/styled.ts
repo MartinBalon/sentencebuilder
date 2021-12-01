@@ -7,7 +7,7 @@ import {
 } from '../../../common/theme';
 import { SentenceSectionProps } from '../../../common/types';
 
-export const Section = styled.section<SentenceSectionProps>`
+export const ListItem = styled.li<SentenceSectionProps>`
 	background: ${(props) =>
 		props.even ? colours.darkPrimay : colours.secondary};
 	padding: 0.4rem;
