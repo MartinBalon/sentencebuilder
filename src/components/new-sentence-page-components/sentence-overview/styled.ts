@@ -24,3 +24,7 @@ export const Paragraph = styled.p`
 	margin-right: 0.5rem;
 	display: inline;
 `;
+
+export const Span = styled.span`
+	color: ${colours.error};
+`;
