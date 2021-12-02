@@ -51,6 +51,13 @@ export type Sentence = {
 	sentence: string;
 };
 
+export type NewSentence = {
+	value: string;
+	touched: boolean;
+	valid: boolean;
+	errorMessage: string;
+};
+
 export type SentenceListProps = {
 	sentences: Sentence[];
 };
@@ -67,4 +74,16 @@ export type PaginationProps = {
 
 export type DivProps = {
 	active: boolean;
+};
+
+export type SortByProps = {
+	onChangeSortBy: (T: string) => void;
+};
+
+export type DeleteLogoProps = {
+	onclick: () => void;
+};
+
+export type DetailLogoProps = {
+	onclick: () => void;
 };

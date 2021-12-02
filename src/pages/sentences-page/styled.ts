@@ -1,6 +1,21 @@
 import styled from 'styled-components';
-import { padding } from '../../common/theme';
+import {
+	colours,
+	fontFamily,
+	fontSizes,
+	fontWeight,
+	padding,
+} from '../../common/theme';
 
 export const Main = styled.main`
 	padding: ${padding.mainPadding};
+`;
+
+export const ErrorMessage = styled.div`
+	color: ${colours.secondary};
+	font-family: ${fontFamily.roboto};
+	font-size: ${fontSizes.large};
+	font-weight: ${fontWeight.bold};
+	text-align: center;
+	margin-top: 2rem;
 `;

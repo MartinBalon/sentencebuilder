@@ -1,20 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { NewSentence } from '../common/types';
 
-type SentenceType = {
-	value: string;
-	touched: boolean;
-	valid: boolean;
-	errorMessage: string;
+export type NewSentenceState = {
+	who: NewSentence;
+	what: NewSentence;
+	where: NewSentence;
+	when: NewSentence;
 };
 
-export type SentenceState = {
-	who: SentenceType;
-	what: SentenceType;
-	where: SentenceType;
-	when: SentenceType;
-};
-
-const initialState: SentenceState = {
+const initialState: NewSentenceState = {
 	who: { value: '', touched: false, valid: false, errorMessage: '' },
 	what: { value: '', touched: false, valid: false, errorMessage: '' },
 	where: { value: '', touched: false, valid: false, errorMessage: '' },
@@ -25,16 +19,16 @@ export const sentenceSlice = createSlice({
 	name: 'sentence',
 	initialState,
 	reducers: {
-		updateWho: (state, action: PayloadAction<SentenceType>) => {
+		updateWho: (state, action: PayloadAction<NewSentence>) => {
 			state.who = action.payload;
 		},
-		updateWhat: (state, action: PayloadAction<SentenceType>) => {
+		updateWhat: (state, action: PayloadAction<NewSentence>) => {
 			state.what = action.payload;
 		},
-		updateWhere: (state, action: PayloadAction<SentenceType>) => {
+		updateWhere: (state, action: PayloadAction<NewSentence>) => {
 			state.where = action.payload;
 		},
-		updateWhen: (state, action: PayloadAction<SentenceType>) => {
+		updateWhen: (state, action: PayloadAction<NewSentence>) => {
 			state.when = action.payload;
 		},
 		deleteSentence: () => {

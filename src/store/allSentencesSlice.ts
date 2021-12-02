@@ -1,22 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Sentence } from '../common/types';
 
-type SentenceType = {
-	id: string;
-	createdAt: number;
-	sentence: string;
-};
-
-const initialState: SentenceType[] = [];
+const initialState: Sentence[] = [];
 
 export const allSentencesSlice = createSlice({
 	name: 'allSentences',
 	initialState,
 	reducers: {
-		addSentence: (state, action: PayloadAction<SentenceType>) => {
+		addSentence: (state, action: PayloadAction<Sentence>) => {
 			state.push(action.payload);
 		},
-		removeSentence: (state, action: PayloadAction<SentenceType>) => {
-			state = state.filter((sentence) => sentence.id !== action.payload.id);
+		removeSentence: (state, action: PayloadAction<Sentence>) => {
+			return state.filter((sentence) => sentence.id !== action.payload.id);
 		},
 	},
 });

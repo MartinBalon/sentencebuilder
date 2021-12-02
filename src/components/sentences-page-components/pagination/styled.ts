@@ -27,4 +27,5 @@ export const Div = styled.div<DivProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 `;
