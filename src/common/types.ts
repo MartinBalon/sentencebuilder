@@ -15,7 +15,7 @@ export type ButtonProps = {
 	title: string;
 	type: string;
 	disabled: boolean;
-	onClick: any;
+	onClick: () => void;
 };
 
 export type StyledButtonProps = {
@@ -42,7 +42,7 @@ export type TextInputProps = {
 	title: string;
 	name: string;
 	data: InputDataObject;
-	onChange: any;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type CorrectSentenceIndicatorProps = {

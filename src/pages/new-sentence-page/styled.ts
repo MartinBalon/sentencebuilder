@@ -1,5 +1,12 @@
 import styled from 'styled-components';
-import { padding, colours, borderRadius } from '../../common/theme';
+import {
+	padding,
+	colours,
+	borderRadius,
+	fontFamily,
+	fontSizes,
+	fontWeight,
+} from '../../common/theme';
 
 export const Main = styled.main`
 	padding: ${padding.mainPadding};
@@ -22,4 +29,20 @@ export const Section = styled.section`
 export const Footer = styled.footer`
 	flex-shrink: 0;
 	margin-top: 2rem;
+`;
+
+export const ErrorMessage = styled.p`
+	color: ${colours.error};
+	font-family: ${fontFamily.roboto};
+	font-size: ${fontSizes.large};
+	font-weight: ${fontWeight.bold};
+	text-align: center;
+`;
+
+export const SuccessMessage = styled.p`
+	color: ${colours.success};
+	font-family: ${fontFamily.roboto};
+	font-size: ${fontSizes.large};
+	font-weight: ${fontWeight.bold};
+	text-align: center;
 `;

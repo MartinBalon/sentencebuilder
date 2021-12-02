@@ -1,18 +1,32 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { deleteSentence } from '../../store/sentenceSlice';
 import { addSentence } from '../../store/allSentencesSlice';
-import { Outlet } from 'react-router';
-import { Main, Divider, Section, Footer } from './styled';
+import { Outlet, Navigate } from 'react-router';
+import {
+	Main,
+	Divider,
+	Section,
+	Footer,
+	ErrorMessage,
+	SuccessMessage,
+} from './styled';
 import Button from '../../components/button';
 import BottomNavigation from '../../components/new-sentence-page-components/bottom-navigation';
 import SentenceOverview from '../../components/new-sentence-page-components/sentence-overview';
-import { SentenceState } from '../../store/sentenceSlice';
 import randomStringGenerator from '../../utils/randomStringGenerator';
+import createSentence from '../../utils/createSentence';
+import LoadingSpinner from '../../components/loadingSpinner';
+import { ADD_SENTENCE_URL, WHO_URL } from '../../constants';
 
 const NewSentence = () => {
 	const sentenceData = useSelector((state: RootState) => state.sentence);
 	const dispatch = useDispatch();
+	const [submiting, setSubmiting] = useState(false);
+	const [success, setSuccess] = useState(false);
+	const [error, setError] = useState(false);
+	const [redirectUser, setRedirectUser] = useState(false);
 
 	let sentenceIsValid: boolean;
 	if (
@@ -38,23 +52,48 @@ const NewSentence = () => {
 		dataToBeDeleted = false;
 	}
 
-	const createSentence = (data: SentenceState, valid: boolean) => {
-		if (valid) {
-			return `${data.who.value} ${data.what.value} ${data.where.value} ${data.when.value}.`;
-		} else {
-			return '';
+	// setting redirect to false - otherwise it's true after submit which creates endless loop
+	useEffect(() => {
+		setRedirectUser(false);
+	});
+
+	useEffect(() => {
+		if (submiting) {
+			const loadingAnimationTimer = setTimeout(() => {
+				setSubmiting(false);
+			}, 1000);
+			return () => clearInterval(loadingAnimationTimer);
 		}
-	};
+	}, [submiting]);
+
+	useEffect(() => {
+		if (success || error) {
+			const redirectTimer = setTimeout(() => {
+				setRedirectUser(true);
+				setError(false);
+				setSuccess(false);
+			}, 2500);
+			return () => clearInterval(redirectTimer);
+		}
+	}, [success, error]);
 
 	const onSubmitHandler = () => {
-		dispatch(
-			addSentence({
-				id: randomStringGenerator(32),
-				createdAt: Date.now(),
-				sentence: createSentence(sentenceData, sentenceIsValid),
-			})
-		);
-		dispatch(deleteSentence());
+		setSubmiting(true);
+		const createdSentence = createSentence(sentenceData, sentenceIsValid);
+
+		if (createdSentence) {
+			dispatch(
+				addSentence({
+					id: randomStringGenerator(32),
+					createdAt: Date.now(),
+					sentence: createdSentence,
+				})
+			);
+			setSuccess(true);
+			dispatch(deleteSentence());
+		} else {
+			setError(true);
+		}
 	};
 
 	const onDeleteHandler = () => {
@@ -66,21 +105,37 @@ const NewSentence = () => {
 			<Main>
 				<Outlet />
 				<Divider />
-				<SentenceOverview />
-				<Section>
-					<Button
-						type='delete'
-						title='DELETE'
-						disabled={!dataToBeDeleted}
-						onClick={onDeleteHandler}
-					/>
-					<Button
-						type='save'
-						title='SAVE'
-						disabled={!sentenceIsValid}
-						onClick={onSubmitHandler}
-					/>
-				</Section>
+				{!submiting && !success && !error && (
+					<>
+						<SentenceOverview />
+						<Section>
+							<Button
+								type='delete'
+								title='DELETE'
+								disabled={!dataToBeDeleted}
+								onClick={onDeleteHandler}
+							/>
+							<Button
+								type='save'
+								title='SAVE'
+								disabled={!sentenceIsValid}
+								onClick={onSubmitHandler}
+							/>
+						</Section>
+					</>
+				)}
+				{submiting && <LoadingSpinner />}
+				{error && !submiting && (
+					<ErrorMessage>
+						Something went wrong. Please try to create a sentence again.
+					</ErrorMessage>
+				)}
+				{success && !submiting && (
+					<SuccessMessage>
+						Success! Your sentence have been created!
+					</SuccessMessage>
+				)}
+				{redirectUser && <Navigate to={`${ADD_SENTENCE_URL}/${WHO_URL}`} />}
 			</Main>
 			<Footer>
 				<BottomNavigation />

@@ -1,4 +1,4 @@
-const randomStringGenerator = (length: number) => {
+const randomStringGenerator = (length: number): string => {
 	let result = '';
 
 	const characters =

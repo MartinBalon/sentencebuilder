@@ -1,4 +1,5 @@
 import { InputDataObject } from '../common/types';
+import { MIN_LENGTH, MAX_LENGTH } from '../constants';
 
 const validateInput = (inputValue: string): InputDataObject => {
 	const value = inputValue;
@@ -22,7 +23,7 @@ const validateInput = (inputValue: string): InputDataObject => {
 		};
 	}
 
-	if (value.trim().length > 0 && value.trim().length < 2) {
+	if (value.trim().length > 0 && value.trim().length < MIN_LENGTH) {
 		return {
 			value: value,
 			touched: true,
@@ -31,7 +32,7 @@ const validateInput = (inputValue: string): InputDataObject => {
 		};
 	}
 
-	if (value.length > 30) {
+	if (value.length > MAX_LENGTH) {
 		return {
 			value: value,
 			touched: true,

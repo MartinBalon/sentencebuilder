@@ -4,3 +4,6 @@ export const WHO_URL = 'who';
 export const WHAT_URL = 'what';
 export const WHEN_URL = 'when';
 export const WHERE_URL = 'where';
+
+export const MIN_LENGTH = 2;
+export const MAX_LENGTH = 30;
