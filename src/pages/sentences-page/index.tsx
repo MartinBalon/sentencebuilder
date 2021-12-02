@@ -19,6 +19,10 @@ const Sentences = () => {
 
 	useEffect(() => {
 		setTotalPages(Math.ceil(allSentences.length / SENTENCES_TO_SHOW));
+		// move to previous page if no sentence left on the current page
+		if (currentPage * SENTENCES_TO_SHOW - 10 >= allSentences.length) {
+			setCurrentPage((prevState: number) => prevState - 1);
+		}
 	});
 
 	useEffect(() => {
