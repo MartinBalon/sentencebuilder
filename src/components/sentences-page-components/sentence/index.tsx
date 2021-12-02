@@ -1,12 +1,13 @@
 import DetailLogo from './detail-logo';
 import DeleteLogo from './delete-logo';
 import { ListItem, Paragraph } from './styled';
+import { SentenceProps } from '../../../common/types';
 
-const Sentence = () => {
+const Sentence = ({ sentenceData }: SentenceProps) => {
 	return (
-		<ListItem even={true}>
-			<Paragraph even={true}>Mark is playing footbal.</Paragraph>
-			<DetailLogo even={true} />
+		<ListItem>
+			<Paragraph>{sentenceData.sentence}</Paragraph>
+			<DetailLogo />
 			<DeleteLogo />
 		</ListItem>
 	);

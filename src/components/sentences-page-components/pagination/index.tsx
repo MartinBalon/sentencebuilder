@@ -1,12 +1,22 @@
 import { Div, Section } from './styled';
+import { PaginationProps } from '../../../common/types';
 
-const Pagination = () => {
-	return (
-		<Section>
-			<Div active={true}>1</Div>
-			<Div active={false}>2</Div>
-		</Section>
-	);
+const Pagination = ({ pages, activePage, onChangePage }: PaginationProps) => {
+	const paginationArray: JSX.Element[] = [];
+
+	for (let i = 1; i <= pages; i++) {
+		paginationArray.push(
+			<Div
+				key={i}
+				onClick={() => onChangePage(i)}
+				active={activePage === i ? true : false}
+			>
+				{i}
+			</Div>
+		);
+	}
+
+	return <Section>{paginationArray}</Section>;
 };
 
 export default Pagination;

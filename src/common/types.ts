@@ -23,10 +23,6 @@ export type StyledButtonProps = {
 	disabled: boolean;
 };
 
-export type SentenceSectionProps = {
-	even: boolean;
-};
-
 export type QuestionNavProps = {
 	link: string;
 };
@@ -47,4 +43,28 @@ export type TextInputProps = {
 
 export type CorrectSentenceIndicatorProps = {
 	success: boolean;
+};
+
+export type Sentence = {
+	id: string;
+	createdAt: number;
+	sentence: string;
+};
+
+export type SentenceListProps = {
+	sentences: Sentence[];
+};
+
+export type SentenceProps = {
+	sentenceData: Sentence;
+};
+
+export type PaginationProps = {
+	pages: number;
+	activePage: number;
+	onChangePage: (T: number) => void;
+};
+
+export type DivProps = {
+	active: boolean;
 };

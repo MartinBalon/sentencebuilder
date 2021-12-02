@@ -5,10 +5,7 @@ import {
 	fontSizes,
 	fontWeight,
 } from '../../../common/theme';
-
-type DivProps = {
-	active: boolean;
-};
+import { DivProps } from '../../../common/types';
 
 export const Section = styled.section`
 	display: flex;
@@ -22,10 +19,12 @@ export const Div = styled.div<DivProps>`
 	color: ${(props) => (props.active ? colours.primary : colours.secondary)};
 	border: ${`1px solid ${colours.secondary}`};
 	font-family: ${fontFamily.roboto};
-	font-size: ${fontSizes.small};
+	font-size: ${fontSizes.normal};
 	font-weight: ${fontWeight.bold};
-	width: 1.2rem;
-	height: 1.2rem;
-	text-align: center;
-	margin: 0 0.1rem;
+	width: 1.4rem;
+	height: 1.4rem;
+	margin: 0 0.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
