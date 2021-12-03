@@ -39,6 +39,17 @@ export const SentenceDetailWrapper = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
+	@media (min-width: 48em) {
+		position: absolute;
+		height: 36rem;
+		width: 40rem;
+		left: 50%;
+		margin-left: -20rem;
+		margin-top: 5rem;
+	}
+	@media (min-width: 120em) {
+		margin-top: 10rem;
+	}
 `;
 
 export const SentenceDetail = styled.div`
@@ -51,6 +62,14 @@ export const SentenceDetail = styled.div`
 	padding: 1rem;
 	border-radius: ${borderRadius.basic};
 	box-shadow: 0px 5px 10px 5px rgba(10, 10, 10, 0.9);
+	@media (min-width: 48em) {
+		top: 50%;
+		left: 50%;
+		margin-top: -6rem;
+		margin-left: -15rem;
+		width: 30rem;
+		height: 12rem;
+	}
 `;
 
 export const CloseButton = styled.button`

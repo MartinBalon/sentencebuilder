@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { colours } from './common/theme';
 
-export const Wrapper = styled.div`
+type WrapperProps = {
+	windowHeight: number;
+};
+
+export const Wrapper = styled.div<WrapperProps>`
 	background: ${colours.primary};
 	letter-spacing: 0.0312em;
 	line-height: normal;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: ${(props) => props.windowHeight}px;
 	width: 100%;
 	@media (min-width: 48em) {
 		min-height: 0;

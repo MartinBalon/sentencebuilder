@@ -16,10 +16,25 @@ import WhoComponent from './components/new-sentence-page-components/who-componen
 import WhatComponent from './components/new-sentence-page-components/what-component';
 import WhenComponent from './components/new-sentence-page-components/when-component';
 import WhereComponent from './components/new-sentence-page-components/where-component';
+import { useEffect, useState } from 'react';
 
 const App = () => {
+	const [windowInnerHeight, setWindowInnerHeight] = useState(
+		window.innerHeight
+	);
+
+	useEffect(() => {
+		window.addEventListener('resize', onVindowResizeHandler);
+
+		return () => window.removeEventListener('resize', onVindowResizeHandler);
+	});
+
+	const onVindowResizeHandler = () => {
+		setWindowInnerHeight(window.innerHeight);
+	};
+
 	return (
-		<Wrapper>
+		<Wrapper windowHeight={windowInnerHeight}>
 			<Router>
 				<Header />
 				<Routes>
