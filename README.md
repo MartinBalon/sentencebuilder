@@ -1,3 +1,21 @@
+# Sentence Builder App
+
+Sentence Builder is an app that allows you to create simple sentences by answering 4 questions. These questions are 'who', 'what' 'where', and 'when'. If these 4 inputs are valid strings and length of these strings doesn't exceed certain amount of characters then user can either save this sentence or discard it.
+
+This application is made out of two main parts.
+
+In the first part of the application a user can see all the saved sentences. Clicking on the detail icon will show a user the whole sentence plus date and time when this sentence was created. Each of these sentences has also a delete button which will delete particular sentence. Simple pagination limits number of sentence per page and a user can navigate between pages.
+
+In the second part of the application a user can create a sentence. There are 4 pages where user can type in either 'who', 'what', 'where', and 'when'. Simple validation will indicate any errors during filling these text inputs. To assist a user with creating a sentence there is also a sentence overview where current sentence is being displayed. This indicates if any of the 4 words above are missing. The bottom bar also indicates success or error while filling in the text inputs and it also serves as navigation in between these 4 pages. This mean that user can navigate either by using arrows - which navigate to either previous or next page - or by using the bottom bar for quicker navigation. If no input is being registered both 'delete' and 'save' buttons are disabled. If there is any input at all the delete button is active and can be used to delete current sentence so user can start over. The save button becomes active ones a user has filled in all 4 fields correctly. After saving the sentence success or error message is displayed. If saving the sentence was successful user is being automatically redirected to first page - 'who' page.
+
+## Technology used to build this app:
+
+React (create react app), Redux, Redux Toolkit, Styled Components, and Typescript.
+
+## You can view the app on heroku:
+
+[link to the app](http://sbuilder96.herokuapp.com/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
