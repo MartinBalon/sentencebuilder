@@ -1,9 +1,9 @@
 import { TextInputProps } from '../../common/types';
-import { Label, Input, ErrorSpan } from './styled';
+import { Label, Input, ErrorSpan, InputContainer } from './styled';
 
 const TextInput = ({ title, name, data, onChange }: TextInputProps) => {
 	return (
-		<div>
+		<InputContainer>
 			<Label htmlFor={name}>{title}</Label>
 			<Input
 				type='text'
@@ -13,7 +13,7 @@ const TextInput = ({ title, name, data, onChange }: TextInputProps) => {
 				onChange={onChange}
 			/>
 			{data.errorMessage && <ErrorSpan>{data.errorMessage}</ErrorSpan>}
-		</div>
+		</InputContainer>
 	);
 };
 

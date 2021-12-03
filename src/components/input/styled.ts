@@ -6,6 +6,7 @@ export const Label = styled.label`
 	font-family: ${fontFamily.roboto};
 	font-weight: ${fontWeight.bold};
 	color: ${colours.secondary};
+	display: block;
 `;
 
 export const Input = styled.input`
@@ -29,4 +30,15 @@ export const ErrorSpan = styled.span`
 	color: ${colours.error};
 	font-size: ${fontSizes.small};
 	font-family: ${fontFamily.roboto};
+	position: absolute;
+	bottom: -${fontSizes.large};
+	left: 0;
+`;
+
+export const InputContainer = styled.div`
+	position: relative;
+	@media (min-width: 48em) {
+		width: 50%;
+		margin: 0 auto;
+	}
 `;

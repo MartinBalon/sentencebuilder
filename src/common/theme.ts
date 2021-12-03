@@ -30,5 +30,6 @@ export const borderRadius = {
 };
 
 export const padding = {
-	mainPadding: '1rem',
+	mobilePadding: '1rem',
+	tabletPadding: '2rem',
 };

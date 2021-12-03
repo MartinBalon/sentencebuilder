@@ -10,12 +10,23 @@ export const LinksContainer = styled.div`
 		content: '';
 		display: table;
 	}
+	@media (min-width: 48em) {
+		&:after {
+			display: none;
+		}
+	}
 `;
 
 export const LeftLink = styled.div`
 	float: left;
+	@media (min-width: 48em) {
+		margin-top: 0.6875rem;
+	}
 `;
 
 export const RightLink = styled.div`
 	float: right;
+	@media (min-width: 48em) {
+		margin-top: 0.6875rem;
+	}
 `;

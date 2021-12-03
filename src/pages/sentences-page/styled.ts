@@ -8,7 +8,10 @@ import {
 } from '../../common/theme';
 
 export const Main = styled.main`
-	padding: ${padding.mainPadding};
+	padding: ${padding.mobilePadding};
+	@media (min-width: 48em) {
+		padding: ${padding.tabletPadding};
+	}
 `;
 
 export const ErrorMessage = styled.div`

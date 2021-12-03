@@ -9,8 +9,11 @@ import {
 } from '../../common/theme';
 
 export const Main = styled.main`
-	padding: ${padding.mainPadding};
+	padding: ${padding.mobilePadding};
 	flex: 1 0 auto;
+	@media (min-width: 48em) {
+		padding: ${padding.tabletPadding};
+	}
 `;
 
 export const Divider = styled.div`
